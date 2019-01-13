@@ -211,6 +211,9 @@ def match_with_gaps(my_word, other_word):
                     ans = True
                 else:
                     return False
+            else:
+                if other_word[i] in my_word:
+                    return False
     else:
         return False
     return ans
@@ -228,8 +231,16 @@ def show_possible_matches(my_word):
 
     '''
     # FILL IN YOUR CODE HERE AND DELETE "pass"
-    print(wordlist)
-show_possible_matches('test')
+    # print(wordlist)
+    print(my_word)
+    result = ''
+    for word in wordlist:
+        if match_with_gaps(my_word, word):
+            result = result + word + ' '
+    print(result[:-1])
+            
+
+show_possible_matches('t_ _ t')
 
 def hangman_with_hints(secret_word):
     '''
