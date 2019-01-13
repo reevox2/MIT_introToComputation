@@ -195,13 +195,26 @@ def match_with_gaps(my_word, other_word):
     '''
     my_word: string with _ characters, current guess of secret word
     other_word: string, regular English word
-    returns: boolean, True if all the actual letters of my_word match the 
+    returns: boolean, True if all the actual letters of my_word match the
         corresponding letters of other_word, or the letter is the special symbol
         _ , and my_word and other_word are of the same length;
-        False otherwise: 
+        False otherwise:
     '''
     # FILL IN YOUR CODE HERE AND DELETE "pass"
-    pass
+    my_word = my_word.replace(' ', '')
+    other_word = other_word.replace(' ', '')
+    ans = False
+    if len(my_word) == len(other_word):
+        for i in range(len(my_word)):
+            if my_word[i] != '_':
+                if (my_word[i] == other_word[i]):
+                    ans = True
+                else:
+                    return False
+    else:
+        return False
+    return ans
+
 
 
 def show_possible_matches(my_word):
@@ -215,8 +228,8 @@ def show_possible_matches(my_word):
 
     '''
     # FILL IN YOUR CODE HERE AND DELETE "pass"
-    pass
-
+    print(wordlist)
+show_possible_matches('test')
 
 def hangman_with_hints(secret_word):
     '''
@@ -224,7 +237,7 @@ def hangman_with_hints(secret_word):
 
     Starts up an interactive game of Hangman.
 
-    * At the start of the game, let the user know how many 
+    * At the start of the game, let the user know how many
       letters the secret_word contains and how many guesses s/he starts with.
 
     * The user should start with 6 guesses
@@ -234,14 +247,14 @@ def hangman_with_hints(secret_word):
 
     * Ask the user to supply one guess per round. Make sure to check that the user guesses a letter
 
-    * The user should receive feedback immediately after each guess 
+    * The user should receive feedback immediately after each guess
       about whether their guess appears in the computer's word.
 
-    * After each guess, you should display to the user the 
+    * After each guess, you should display to the user the
       partially guessed word so far.
 
     * If the guess is the symbol *, print out all words in wordlist that
-      matches the current guessed word. 
+      matches the current guessed word.
 
     Follows the other limitations detailed in the problem write-up.
     '''
@@ -261,7 +274,7 @@ if __name__ == "__main__":
     # uncomment the following two lines.
 
     secret_word = choose_word(wordlist)
-    hangman('tact')
+    #hangman('tact')
 
 ###############
 
