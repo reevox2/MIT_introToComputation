@@ -219,7 +219,6 @@ def match_with_gaps(my_word, other_word):
     return ans
 
 
-
 def show_possible_matches(my_word):
     '''
     my_word: string with _ characters, current guess of secret word
@@ -239,7 +238,6 @@ def show_possible_matches(my_word):
         print('No matches found')
         return
     print(result[:-1])
-
 
 
 def hangman_with_hints(secret_word):
@@ -285,7 +283,8 @@ def hangman_with_hints(secret_word):
         # validate user input
         guess = str.lower(input('Please guess a letter: '))[0]
         if guess == '*':
-            show_possible_matches(get_guessed_word(secret_word, letters_guessed))
+            show_possible_matches(get_guessed_word(
+                secret_word, letters_guessed))
             letters_guessed.append(guess)
             continue
         while not str.isalpha(guess) or (guess in letters_guessed):
@@ -342,9 +341,9 @@ if __name__ == "__main__":
     # uncomment the following two lines.
 
     # secret_word = choose_word(wordlist)
-    #hangman('tact')
+    # hangman('tact')
 
-###############
+    ###############
 
     # To test part 3 re-comment out the above lines and
     # uncomment the following two lines.
