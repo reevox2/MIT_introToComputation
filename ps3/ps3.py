@@ -215,8 +215,8 @@ def is_valid_word(word, hand, word_list):
     """
     tmp = hand.copy()
     word = word.lower()
+    # all letters in word in hand
     for letter in word:
-        print(word)
         check = tmp.get(letter)
         if check != None:
             tmp[letter] -= 1
@@ -224,6 +224,11 @@ def is_valid_word(word, hand, word_list):
                 return False
         else:
             return False
+    wild = word.find('*')
+    if wild > -1:
+        for vowel in VOWELS:
+            if (word[:wild] + vowel + word[wild + 1:]) in word_list:
+                return True
     return word in word_list
 
 #
